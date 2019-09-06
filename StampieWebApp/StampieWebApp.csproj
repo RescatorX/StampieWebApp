@@ -1,7 +1,7 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
     <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
     <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
     <IsPackable>false</IsPackable>
@@ -14,14 +14,84 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
-    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="2.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
   </ItemGroup>
 
   <ItemGroup>
     <!-- Don't publish the SPA source files, but do show them in the project files list -->
     <Content Remove="$(SpaRoot)**" />
+    <None Remove="$(SpaRoot)**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="ClientApp\src\app\components\index.ts" />
+    <None Remove="ClientApp\src\app\components\stamps\index.ts" />
+    <None Remove="ClientApp\src\app\components\stamps\stamp-gain-table\stamp-gain-table.component.ts" />
+    <None Remove="ClientApp\src\app\consts\global.consts.ts" />
+    <None Remove="ClientApp\src\app\consts\index.ts" />
+    <None Remove="ClientApp\src\app\consts\messages.consts.ts" />
+    <None Remove="ClientApp\src\app\entities\api-info.entity.ts" />
+    <None Remove="ClientApp\src\app\entities\api-response.entity.ts" />
+    <None Remove="ClientApp\src\app\entities\auth-response.entity.ts" />
+    <None Remove="ClientApp\src\app\entities\base.entity.ts" />
+    <None Remove="ClientApp\src\app\entities\index.ts" />
+    <None Remove="ClientApp\src\app\entities\log.entity.ts" />
+    <None Remove="ClientApp\src\app\entities\stamp.entity.ts" />
+    <None Remove="ClientApp\src\app\entities\user.entity.ts" />
+    <None Remove="ClientApp\src\app\enums\index.ts" />
+    <None Remove="ClientApp\src\app\enums\log-level.enum.ts" />
+    <None Remove="ClientApp\src\app\guards\auth.guard.ts" />
+    <None Remove="ClientApp\src\app\guards\index.ts" />
+    <None Remove="ClientApp\src\app\helpers\index.ts" />
+    <None Remove="ClientApp\src\app\helpers\md2-datepicker-date-locale.service.ts" />
+    <None Remove="ClientApp\src\app\services\authentication.service.ts" />
+    <None Remove="ClientApp\src\app\services\config.service.ts" />
+    <None Remove="ClientApp\src\app\services\index.ts" />
+    <None Remove="ClientApp\src\app\services\log.service.ts" />
+    <None Remove="ClientApp\src\app\services\stamp.service.ts" />
+    <None Remove="ClientApp\src\app\services\user.service.ts" />
+    <None Remove="ClientApp\src\app\utils\index.ts" />
+    <None Remove="ClientApp\src\app\utils\net.utils.ts" />
+    <None Remove="ClientApp\src\assets\data\config-data.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\components\index.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\components\stamps\index.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\components\stamps\stamp-gain-table\stamp-gain-table.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\consts\global.consts.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\consts\index.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\consts\messages.consts.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\entities\api-info.entity.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\entities\api-response.entity.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\entities\auth-response.entity.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\entities\base.entity.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\entities\index.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\entities\log.entity.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\entities\stamp.entity.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\entities\user.entity.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\enums\index.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\enums\log-level.enum.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\guards\auth.guard.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\guards\index.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\helpers\index.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\helpers\md2-datepicker-date-locale.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\services\authentication.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\services\config.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\services\index.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\services\log.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\services\stamp.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\services\user.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\utils\index.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\utils\net.utils.ts" />
+    <TypeScriptCompile Include="ClientApp\src\assets\data\config-data.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ClientApp\src\app\exceptions\" />
+    <Folder Include="ClientApp\src\app\pipes\" />
+    <Folder Include="ClientApp\src\assets\images\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
