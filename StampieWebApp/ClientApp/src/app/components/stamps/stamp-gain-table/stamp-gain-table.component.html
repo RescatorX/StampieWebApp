@@ -4,6 +4,10 @@
 
 <p *ngIf="!forecasts"><em>Loading...</em></p>
 
+<table *ngIf="stampService.allStamps">
+  <tr></tr>
+</table>
+
 <table class='table table-striped' *ngIf="forecasts">
   <thead>
     <tr>

@@ -7,6 +7,8 @@ import { getBaseUrl } from "../../main";
 @Injectable()
 export class StampService {
 
+  public allStamps: StampEntity[] = [];
+
   //https://www.turisticke-znamky.cz/export.php?item=1&type=csv
   private baseUrl: string = null;
 

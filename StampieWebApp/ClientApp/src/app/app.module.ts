@@ -1,13 +1,16 @@
-import { BrowserModule } from '@angular/platform-browser';
+
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { AuthGuard } from './guards';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { CounterComponent, FetchDataComponent, HomeComponent, StampGainTableComponent } from './components';
+import { Md2DatepickerDateLocaleService } from './helpers';
 import { ConfigService, LogService, StampService, UserService, AuthenticationService } from './services';
 
 @NgModule({
@@ -31,6 +34,16 @@ import { ConfigService, LogService, StampService, UserService, AuthenticationSer
     ])
   ],
   providers: [
+    {
+      provide: LocationStrategy,
+      useClass: HashLocationStrategy
+    },
+/*
+    {
+      provide: MD2.DateLocale,
+      useClass: Md2DatepickerDateLocaleService
+    },
+*/
     AuthGuard,
     AuthenticationService,
     ConfigService,
