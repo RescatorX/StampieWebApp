@@ -1,7 +1,39 @@
 import { BaseEntity } from "./base.entity";
 import { DatePipe } from "@angular/common";
 
-export class StampEntity extends BaseEntity {
+export interface IStamp {
+  id: string;
+  name: string;
+  category: string;
+  county: string;
+  published: Date;
+  sellingPlace1: string;
+  sellingPlace1Web: string;
+  sellingPlace2: string;
+  sellingPlace2Web: string;
+  sellingPlace3: string;
+  sellingPlace3Web: string;
+  sellingPlace4: string;
+  sellingPlace4Web: string;
+  sellingPlace5: string;
+  sellingPlace5Web: string;
+  sellingPlace6: string;
+  sellingPlace6Web: string;
+  sellingPlace7: string;
+  sellingPlace7Web: string;
+  sellingPlace8: string;
+  sellingPlace8Web: string;
+  sellingPlace9: string;
+  sellingPlace9Web: string;
+  sellingPlace10: string;
+  sellingPlace10Web: string;
+  sellingPlace11: string;
+  sellingPlace11Web: string;
+  gpsPositionLat?: number;
+  gpsPositionLng?: number;
+}
+
+export class StampEntity extends BaseEntity implements IStamp {
 
   /**
    * Stamp name

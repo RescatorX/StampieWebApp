@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { StampService } from '../../../services';
+import { StampEntity } from '../../../entities';
 
 @Component({
   selector: 'app-stamp-gain-table',
@@ -8,6 +8,9 @@ import { StampService } from '../../../services';
 })
 export class StampGainTableComponent {
 
+  public stamps: StampEntity[] = [];
+
   constructor(private stampService: StampService) {
+    this.stamps = this.stampService.allStamps;
   }
 }

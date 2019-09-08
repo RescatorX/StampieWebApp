@@ -1,22 +1,31 @@
 import { Observable } from "rxjs";
 import { Injectable, Inject } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { StampEntity } from "../entities";
+import { StampEntity, IStamp } from "../entities";
 import { getBaseUrl } from "../../main";
 
 @Injectable()
 export class StampService {
 
-  public allStamps: StampEntity[] = [];
+  //@Inject('BASE_URL')
+  private baseUrl: string;
 
-  //https://www.turisticke-znamky.cz/export.php?item=1&type=csv
-  private baseUrl: string = null;
+  public allStamps: IStamp[] = [];
 
   constructor(private http: HttpClient) {
     this.baseUrl = getBaseUrl();
+    if ((this.allStamps == null) || (this.allStamps.length == 0)) {
+      this.getStamps();
+    }
   }
 
-  public getStamps(): Observable<StampEntity[]> {
-    return this.http.get<StampEntity[]>(this.baseUrl);
+  public getStamps() {
+    this.http.get<IStamp[]>(this.baseUrl + 'api/Stamps/DownloadStamps').subscribe(stamps => {
+      this.allStamps = new Array<StampEntity>(stamps.length);
+      this.allStamps = [].concat(stamps);
+    }, error => {
+      this.allStamps = [];
+      console.error(error);
+    });
   }
 }
