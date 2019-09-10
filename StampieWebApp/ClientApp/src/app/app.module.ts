@@ -12,6 +12,7 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { CounterComponent, FetchDataComponent, HomeComponent, StampGainTableComponent } from './components';
 import { Md2DatepickerDateLocaleService } from './helpers';
 import { ConfigService, LogService, StampService, UserService, AuthenticationService } from './services';
+import { SortByPipe } from './pipes';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ConfigService, LogService, StampService, UserService, AuthenticationSer
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    StampGainTableComponent
+    StampGainTableComponent,
+    SortByPipe
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -49,7 +51,8 @@ import { ConfigService, LogService, StampService, UserService, AuthenticationSer
     ConfigService,
     LogService,
     StampService,
-    UserService
+    UserService,
+    SortByPipe
   ],
   bootstrap: [AppComponent]
 })

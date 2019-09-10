@@ -1,22 +1,43 @@
-<h1>Stamps</h1>
 
-<p>This component demonstrates fetching data from the server.</p>
+<table>
+  <tr>
+    <td>
+      <h1>Získané turistické známky</h1>
+    </td>
+    <td>
+      <input type="text" [(ngModel)]="searchText" (change)="searchTextChanged($event)" style="font-size: 18px;" />
+    </td>
+    <td>
+      <span *ngIf="searchText.length < 3">Zadejte alespoň 3 znaky pro vyhledání</span>
+    </td>
+  </tr>
+</table>
 
 <p *ngIf="!stamps"><em>Loading...</em></p>
-
-<table *ngIf="stamps">
-  <tr></tr>
-</table>
 
 <table class='table table-striped' *ngIf="stamps">
   <thead>
     <tr>
-      <th>Jmeno</th>
+      <th><span style="font-size: 20px; padding-left: 30px;">K dispozici</span></th>
+      <th><span style="font-size: 20px; padding-left: 30px;">Již vlastním</span></th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let stamp of stamps">
-      <td>{{ stamp.name }}</td>
+    <tr>
+      <td>
+        <ul style="font-size: 18px; list-style: none;">
+          <li *ngFor="let stamp of stamps | sortBy:'name':'asc'">
+            <span [ngClass]="{ 'gained': stamp.gained, 'available': !stamp.gained }" (click)="addGained(stamp)" style="cursor: pointer;">{{stamp.name}}</span>
+          </li>
+        </ul>
+      </td>
+      <td>
+        <ul style="font-size: 18px; list-style: none;">
+          <li *ngFor="let stamp of stamps | sortBy:'name':'asc'">
+            <span [ngClass]="{ 'available': stamp.gained, 'gained': !stamp.gained }" (click)="removeGained(stamp)" style="cursor: pointer;">{{stamp.name}}</span>
+          </li>
+        </ul>
+      </td>
     </tr>
   </tbody>
 </table>

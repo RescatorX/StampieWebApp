@@ -47,6 +47,8 @@
     <None Remove="ClientApp\src\app\guards\index.ts" />
     <None Remove="ClientApp\src\app\helpers\index.ts" />
     <None Remove="ClientApp\src\app\helpers\md2-datepicker-date-locale.service.ts" />
+    <None Remove="ClientApp\src\app\pipes\index.ts" />
+    <None Remove="ClientApp\src\app\pipes\sortBy.pipe.ts" />
     <None Remove="ClientApp\src\app\services\authentication.service.ts" />
     <None Remove="ClientApp\src\app\services\config.service.ts" />
     <None Remove="ClientApp\src\app\services\index.ts" />
@@ -79,6 +81,8 @@
     <TypeScriptCompile Include="ClientApp\src\app\guards\index.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\helpers\index.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\helpers\md2-datepicker-date-locale.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\pipes\index.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\pipes\sortBy.pipe.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\authentication.service.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\config.service.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\index.ts" />
@@ -92,7 +96,6 @@
 
   <ItemGroup>
     <Folder Include="ClientApp\src\app\exceptions\" />
-    <Folder Include="ClientApp\src\app\pipes\" />
     <Folder Include="ClientApp\src\assets\images\" />
   </ItemGroup>
 

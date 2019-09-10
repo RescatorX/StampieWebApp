@@ -20,6 +20,7 @@ var StampEntity = /** @class */ (function (_super) {
     function StampEntity(obj) {
         var _this = _super.call(this) || this;
         base_entity_1.BaseEntity.copyProperties(obj, _this);
+        _this.name = _this.name.replace(new RegExp("\"", 'g'), "");
         return _this;
     }
     /**

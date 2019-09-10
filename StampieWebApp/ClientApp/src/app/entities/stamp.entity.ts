@@ -31,6 +31,8 @@ export interface IStamp {
   sellingPlace11Web: string;
   gpsPositionLat?: number;
   gpsPositionLng?: number;
+
+  gained?: boolean;
 }
 
 export class StampEntity extends BaseEntity implements IStamp {
@@ -175,9 +177,16 @@ export class StampEntity extends BaseEntity implements IStamp {
    */
   public gpsPositionLng?: number;
 
+  /**
+   * Gained by user
+   */
+  public gained?: boolean;
+  
   constructor(obj: {}) {
     super();
     BaseEntity.copyProperties(obj, this);
+
+    this.name = this.name.replace(new RegExp("\"", 'g'), "");
   }
 
   /**
