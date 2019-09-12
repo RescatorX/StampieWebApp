@@ -48,5 +48,9 @@ export class StampGainTableComponent implements OnInit {
     if (this.searchText.length >= 3) {
       this.stamps = this.allStamps.filter(s => s.name.toLowerCase().indexOf(this.searchText.toLowerCase()) >= 0);
     }
+
+    if (this.searchText.length == 0) {
+      this.stamps = this.allStamps;
+    }
   }
 }

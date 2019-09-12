@@ -21,8 +21,12 @@
 
   <ItemGroup>
     <!-- Don't publish the SPA source files, but do show them in the project files list -->
+    <Compile Remove="ClientApp\src\app\exceptions\**" />
     <Content Remove="$(SpaRoot)**" />
+    <Content Remove="ClientApp\src\app\exceptions\**" />
+    <EmbeddedResource Remove="ClientApp\src\app\exceptions\**" />
     <None Remove="$(SpaRoot)**" />
+    <None Remove="ClientApp\src\app\exceptions\**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
   </ItemGroup>
 
@@ -95,7 +99,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ClientApp\src\app\exceptions\" />
     <Folder Include="ClientApp\src\assets\images\" />
   </ItemGroup>
 
